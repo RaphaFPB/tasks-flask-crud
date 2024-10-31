@@ -22,7 +22,7 @@ def create_task():
     tasks.append(new_task)
     print(tasks) 
     print(data)
-    return jsonify({"message" : "Nova tarefa criada com sucesso"})#metodo para retornar json, padrão flask
+    return jsonify({"message" : "Nova tarefa criada com sucesso", "id":new_task.id})#metodo para retornar json, padrão flask
 
 @app.route('/tasks', methods=['GET'])
 def get_tasks():
@@ -65,6 +65,7 @@ def update_task(id):
     for t in tasks:
         if t.id == id:
             task = t
+            break
       
     if task == None:
         return jsonify({"message": "Não foi possível encontrar a atividade"}), 404
@@ -73,14 +74,14 @@ def update_task(id):
     task.description = data["description"]
     task.completed = data.get('completed')
     
-    return jsonify({"message:": "Tarefa atualizada com sucesso!"})
+    return jsonify({"message": "Tarefa atualizada com sucesso!"})
 
 
 @app.route('/tasks/<int:id>', methods = ['DELETE'])
 def delete_task(id):
     task=None
     for t in tasks:
-        print(t.to_dict())
+        
         if t.id ==id:
             task=t
             break
@@ -93,3 +94,28 @@ def delete_task(id):
 
 if __name__=="__main__":
     app.run(debug=True)
+
+
+
+"""processo para atualizar repositorio
+acessa pasta do repositorio
+
+git status
+
+
+git add nomearquivo
+git add nomearquivo/  ADD PASTA TODA
+
+git add . -adiciona tudo
+para adiconar um arquivo a ser ignorado, acrescentar na linha do .gitignore
+
+git commit -m "mensagem" mensagem comit
+
+git push origin main - sobe arquivos
+
+$ eval "$(ssh-agent -s)"
+
+$ ssh-add ~/.ssh/raphafpb_key caso não dentro da pasta
+$ssh-add ~/raphafpb_key
+senha:cga08150
+"""
