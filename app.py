@@ -96,26 +96,3 @@ if __name__=="__main__":
     app.run(debug=True)
 
 
-
-"""processo para atualizar repositorio
-acessa pasta do repositorio
-
-git status
-
-
-git add nomearquivo
-git add nomearquivo/  ADD PASTA TODA
-
-git add . -adiciona tudo
-para adiconar um arquivo a ser ignorado, acrescentar na linha do .gitignore
-
-git commit -m "mensagem" mensagem comit
-
-git push origin main - sobe arquivos
-
-$ eval "$(ssh-agent -s)"
-
-$ ssh-add ~/.ssh/raphafpb_key caso não dentro da pasta
-$ssh-add ~/raphafpb_key
-senha:cga08150
-"""
